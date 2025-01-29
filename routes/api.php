@@ -10,12 +10,13 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
-Route::apiResource('cards', CardController::class);
 
 Route::get('/cards', [CardController::class, 'index']); // Listar cartas
 Route::post('/cards', [CardController::class, 'store']); // Crear carta
 Route::put('/cards/{id}', [CardController::class, 'update']); // Actualizar carta
 Route::delete('/cards/{id}', [CardController::class, 'destroy']); // Eliminar carta
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/perfil', [UserController::class, 'perfil']);

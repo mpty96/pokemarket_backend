@@ -11,6 +11,10 @@ class CardController extends Controller
     public function index()
     {
         return Card::all(); // Obtener todas las cartas
+        $cartas = Card::all();
+
+        // Retornamos las cartas en formato JSON
+        return response()->json($cartas, 200);
     }
 
     public function store(Request $request)
